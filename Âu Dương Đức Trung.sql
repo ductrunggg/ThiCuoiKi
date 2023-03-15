@@ -77,7 +77,7 @@ DROP ROLE NhanVien
 --b
 delete Purchasing.PurchaseOrderDetail
 backup database AdventureWorks2008R2
-to disk = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup'
+to disk = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup\adventure-works-2008r2-oltp.bak'
 with differential 
 
 --c
@@ -85,12 +85,12 @@ select*from Person.PersonPhone where BusinessEntityID = 0114
 insert into Person.PersonPhone values(0114, '050302' , 2 ,getdate())
 
 backup log AdventureWorks2008R2
-to disk = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup'
+to disk = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup\adventure-works-2008r2-oltp.bak'
 
 --d
 use master
 drop database AdventureWorks2008R2
 
 restore database AdventureWorks2008R2
-from disk = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup'
+from disk = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Backup\adventure-works-2008r2-oltp.bak'
 with file = 1, replace , norecovery
